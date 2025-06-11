@@ -31,7 +31,7 @@ struct MetadataValue {
 
 type MetadataBins = HashMap<String, MetadataValue>;
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct BinaryPackage {
     pub bin_target: Option<String>,
     pub package: String,

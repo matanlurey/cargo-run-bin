@@ -174,8 +174,10 @@ pub fn install(binary_package: metadata::BinaryPackage) -> Result<String> {
             && binary_package.package != "cargo-binstall"
             && (cargo_config::binstall_alias_exists()? || which("cargo-binstall").is_ok())
         {
+            eprintln!("Using cargo-binstall: {:?}", binary_package);
             binstall(binary_package, cache_path)?;
         } else {
+            eprintln!("Using cargo install: {:?}", binary_package);
             cargo_install(binary_package, cache_path)?;
         }
     }
